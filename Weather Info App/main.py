@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from weather_api import get_weather
+from fastapi import Query
+from typing import Annotated
 
 app = FastAPI(
     title="🌤️ Weather Info API",
@@ -10,8 +12,6 @@ app = FastAPI(
 def home():
     return {"message": "Welcome to Weather API"}
 
-from fastapi import FastAPI, Query
-from typing import Annotated
 
 @app.get("/weather/", summary="Get Weather for a City", description="Returns temperature, humidity, and weather description for a given city.")
 async def weather(
